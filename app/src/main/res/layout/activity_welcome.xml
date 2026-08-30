@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="28dp"
+    android:background="#6366F1">
+
+        <TextView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:gravity="center"
+        android:text="✓"
+        android:textColor="#6366F1"
+        android:textSize="55sp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_welcome_circle" />
+
+    <TextView
+        android:id="@+id/tvWelcomeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="¡Bienvenido!"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Tu cuenta está lista.\nEs hora de comenzar."
+        android:textColor="#E0E7FF"
+        android:textSize="17sp"
+        android:gravity="center" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginTop="40dp"
+        android:text="Ir al dashboard"
+        android:textAllCaps="false"
+        android:textColor="#6366F1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#FFFFFF"
+        app:cornerRadius="18dp" />
+
+</LinearLayout>

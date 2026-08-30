@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F8FAFC">
+    <LinearLayout android:id="@+id/header" android:layout_width="0dp" android:layout_height="wrap_content" android:background="#4F46E5" android:orientation="vertical" android:padding="24dp" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:layout_width="48dp" android:layout_height="48dp" android:contentDescription="Logo de TaskMaster" android:src="@android:drawable/ic_menu_agenda" app:tint="#FFFFFF" />
+        <TextView android:id="@+id/tvGreeting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Hola" android:textColor="#FFFFFF" android:textSize="26sp" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Organiza tu día, una tarea a la vez" android:textColor="#E0E7FF" android:textSize="14sp" />
+    </LinearLayout>
+    <TableLayout android:id="@+id/progressTable" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_margin="16dp" android:background="@drawable/bg_card" android:padding="16dp" android:stretchColumns="1" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/header">
+        <TableRow>
+            <TextView android:text="Progreso" android:textColor="#0F172A" android:textStyle="bold" />
+            <TextView android:id="@+id/tvProgress" android:gravity="end" android:text="0 de 0 tareas" android:textColor="#64748B" />
+        </TableRow>
+        <ProgressBar android:id="@+id/progressTasks" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:layout_marginTop="12dp" android:max="100" android:progress="0" />
+    </TableLayout>
+    <TextView android:id="@+id/tvSectionTitle" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginHorizontal="20dp" android:text="Mis tareas" android:textColor="#0F172A" android:textSize="20sp" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/progressTable" />
+    <TextView android:id="@+id/tvEmpty" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Aún no tienes tareas" android:textColor="#64748B" android:visibility="gone" app:layout_constraintBottom_toBottomOf="@id/recyclerTasks" app:layout_constraintEnd_toEndOf="@id/recyclerTasks" app:layout_constraintStart_toStartOf="@id/recyclerTasks" app:layout_constraintTop_toTopOf="@id/recyclerTasks" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerTasks" android:layout_width="0dp" android:layout_height="0dp" android:layout_marginTop="8dp" android:clipToPadding="false" android:paddingHorizontal="16dp" android:paddingBottom="8dp" app:layout_constraintBottom_toTopOf="@id/actions" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tvSectionTitle" />
+    <LinearLayout android:id="@+id/actions" android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="12dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent">
+        <Button android:id="@+id/btnLogout" android:layout_width="wrap_content" android:layout_height="52dp" android:text="Salir" android:textAllCaps="false" />
+        <Button android:id="@+id/btnAddTask" android:layout_width="0dp" android:layout_height="52dp" android:layout_marginStart="12dp" android:layout_weight="1" android:text="+ Nueva tarea" android:textAllCaps="false" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
