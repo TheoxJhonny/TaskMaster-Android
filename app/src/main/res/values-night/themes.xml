@@ -1,7 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SandboxGood" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- TaskMaster todavía no implementa una paleta oscura. Esta variante conserva
+         los mismos colores claros para evitar texto ilegible en dispositivos oscuros. -->
+    <style name="Base.Theme.SandboxGood" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">#4F46E5</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:colorAccent">#4F46E5</item>
+        <item name="android:windowBackground">#F8FAFC</item>
+        <item name="android:navigationBarColor">#F8FAFC</item>
+        <item name="android:statusBarColor">#4F46E5</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 </resources>

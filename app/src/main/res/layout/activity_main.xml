@@ -106,6 +106,19 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:id="@+id/tvLoginError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:accessibilityLiveRegion="polite"
+            android:gravity="center"
+            android:text="Correo o contraseña incorrectos"
+            android:textColor="#B3261E"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
         <!-- Recuperar contraseña -->
         <TextView
             android:id="@+id/tvForgotPassword"
