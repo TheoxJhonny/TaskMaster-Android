@@ -1,4 +1,4 @@
-package com.example.sandboxgood;
+package com.example.sandboxgood.ui.welcome;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,32 +6,22 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sandboxgood.R;
+import com.example.sandboxgood.data.UserSession;
+import com.example.sandboxgood.ui.tasks.DashboardActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class WelcomeActivity extends AppCompatActivity {
-
-    private MaterialButton btnDashboard;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_welcome);
 
         TextView tvWelcomeName = findViewById(R.id.tvWelcomeName);
+        MaterialButton btnDashboard = findViewById(R.id.btnDashboard);
         tvWelcomeName.setText("Hola, " + new UserSession(this).getName());
-
-        btnDashboard = findViewById(R.id.btnDashboard);
-
         btnDashboard.setOnClickListener(v -> {
-
-            Intent intent = new Intent(
-                    WelcomeActivity.this,
-                    DashboardActivity.class
-            );
-
-            startActivity(intent);
-
+            startActivity(new Intent(this, DashboardActivity.class));
             finish();
         });
     }

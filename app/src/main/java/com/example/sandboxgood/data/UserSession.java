@@ -1,4 +1,4 @@
-package com.example.sandboxgood;
+package com.example.sandboxgood.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -26,11 +26,7 @@ public class UserSession {
                 .putString("password", password).putBoolean("logged", true).apply();
     }
 
-    public String getName() {
-        return prefs.getString("name", "Estudiante");
-    }
+    public String getName() { return prefs.getString("name", "Estudiante"); }
 
-    public void logout() {
-        prefs.edit().putBoolean("logged", false).apply();
-    }
+    public void logout() { prefs.edit().putBoolean("logged", false).apply(); }
 }

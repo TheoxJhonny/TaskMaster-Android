@@ -1,7 +1,9 @@
-package com.example.sandboxgood;
+package com.example.sandboxgood.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.example.sandboxgood.model.TaskItem;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,14 +14,19 @@ import java.util.List;
 public class TaskRepository {
     private static final String PREFS = "taskmaster_tasks";
     private static final String KEY = "items";
+    private final Context context;
 
-    public static List<TaskItem> load(Context context) {
+    public TaskRepository(Context context) {
+        this.context = context.getApplicationContext();
+    }
+
+    public List<TaskItem> load() {
         List<TaskItem> items = new ArrayList<>();
         String raw = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString(KEY, "");
         if (raw.isEmpty()) {
             items.add(new TaskItem("Revisar contenidos de Android", "Estudio", "Alta", 4, false));
             items.add(new TaskItem("Preparar materiales para mañana", "Personal", "Media", 3, true));
-            save(context, items);
+            save(items);
             return items;
         }
         try {
@@ -34,22 +41,22 @@ public class TaskRepository {
         return items;
     }
 
-    public static void add(Context context, TaskItem task) {
-        List<TaskItem> items = load(context);
+    public void add(TaskItem task) {
+        List<TaskItem> items = load();
         items.add(0, task);
-        save(context, items);
+        save(items);
     }
 
-    public static void save(Context context, List<TaskItem> items) {
+    public void save(List<TaskItem> items) {
         JSONArray array = new JSONArray();
         try {
             for (TaskItem task : items) {
                 JSONObject object = new JSONObject();
-                object.put("title", task.title);
-                object.put("category", task.category);
-                object.put("priority", task.priority);
-                object.put("effort", task.effort);
-                object.put("completed", task.completed);
+                object.put("title", task.getTitle());
+                object.put("category", task.getCategory());
+                object.put("priority", task.getPriority());
+                object.put("effort", task.getEffort());
+                object.put("completed", task.isCompleted());
                 array.put(object);
             }
         } catch (Exception ignored) { }
